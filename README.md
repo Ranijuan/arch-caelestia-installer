@@ -1,201 +1,163 @@
 # 🚀 Instalador Arch Linux con Caelestia
 
-Una **aplicación interactiva paso a paso** que te guía para instalar Arch Linux con Caelestia de forma **simple, sin tecnicismos**.
+[![GitHub Release](https://img.shields.io/badge/release-v2.0-blue)](https://github.com/Ranijuan/arch-caelestia-installer/releases)
+[![ISO Support](https://img.shields.io/badge/ISO-Supported-success)](ISO_BUILD_GUIDE.md)
+[![Python](https://img.shields.io/badge/Python_3-3776ab?logo=python&logoColor=fff)](.)
+[![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=fff)](.)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793d1?logo=arch-linux&logoColor=fff)
-![Python 3](https://img.shields.io/badge/Python_3-3776ab?logo=python&logoColor=fff)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=fff)
+Una aplicación que proporciona **tres formas** de instalar Arch Linux + Caelestia:
+
+### 🎯 3 Métodos
+
+| 🔴 ISO Automática | 🟡 Script CLI | 🟢 Manual |
+|---|---|---|
+| **100% automático** | Interactivo | Control total |
+| Arranca desde USB | Ejecutar script | Línea por línea |
+| 0% intervención | 30-50% intervención | 100% intervención |
+| 15-45 minutos | 30-60 minutos | 60-180 minutos |
+| ⭐ **Recomendado** | Bueno | Avanzado |
 
 ---
 
-## ⚡ Inicio Rápido
+## 🔴 ISO Automática v2.0 (NUEVO)
 
-### En Linux/WSL - Opción 1: Python (Recomendado)
+**Instala Arch + Caelestia 100% automático desde USB.**
 
+Similar a: OMarchy, EndeavourOS, Manjaro
+
+### 🚀 Quick Start
 ```bash
-# 1. Abre la terminal
-# 2. Navega a la carpeta
-cd ~/Downloads/arch\ caelestia
+git clone https://github.com/Ranijuan/arch-caelestia-installer.git
+cd arch-caelestia-installer
 
-# 3. Ejecuta el instalador
+# Compilar ISO (en Arch Linux)
+sudo chmod +x iso/build-iso.sh
+sudo ./iso/build-iso.sh
+
+# Grabar en USB
+sudo dd if=iso/out/arch-caelestia-auto-*.iso of=/dev/sdX bs=4M status=progress
+
+# Arrancar desde USB → Instalación automática ✅
+```
+
+👉 **[Guía completa de ISO →](ISO_BUILD_GUIDE.md)**
+
+---
+
+## 🟡 Script CLI v1.0
+
+**Instalador interactivo paso a paso.**
+
+### 🚀 Quick Start
+```bash
+git clone https://github.com/Ranijuan/arch-caelestia-installer.git
+cd arch-caelestia-installer
+
+# Python (recomendado)
 python instalador_arch.py
 
-# 4. ¡Sigue las instrucciones en pantalla!
-```
-
-### En Linux/WSL - Opción 2: Bash (Script directo)
-
-```bash
-# 1. Haz el script ejecutable
+# O Bash
 chmod +x instalador_arch.sh
-
-# 2. Ejecuta
 ./instalador_arch.sh
-
-# 3. ¡Disfruta!
 ```
 
----
+### 8 Pasos incluidos
+1. ✓ Verificación de conexión
+2. ✓ Actualización del sistema
+3. ✓ Instalación de dependencias
+4. ✓ Descarga de Caelestia
+5. ✓ Instalación de Caelestia
+6. ✓ Configuración (elige DE + idioma)
+7. ✓ Paquetes opcionales
+8. ✓ Finalización
 
-## 📦 ¿Qué hace?
+⏱️ **Tiempo:** 30-60 minutos
 
-La aplicación **ejecuta automáticamente** estos pasos:
-
-| Paso | Descripción |
-|------|-------------|
-| 1️⃣ | Verifica conexión a internet |
-| 2️⃣ | Actualiza el sistema completo |
-| 3️⃣ | Instala dependencias necesarias |
-| 4️⃣ | Descarga Caelestia |
-| 5️⃣ | Instala Caelestia |
-| 6️⃣ | Configura Caelestia (tú eliges opciones) |
-| 7️⃣ | Instala paquetes adicionales |
-| 8️⃣ | Finaliza y limpia el sistema |
+👉 **[Guía de uso →](LEEME.md)**
 
 ---
 
-## 🎮 ¿Cómo funciona?
+## 📋 Documentación
 
-**Súper simple:**
-
-1. 📖 Lee la descripción de cada paso
-2. ⌨️ Presiona ENTER para continuar
-3. 🎯 Responde preguntas (s/n o elige un número)
-4. ✨ **La aplicación hace todo el trabajo automáticamente**
-
-No necesitas escribir comandos - **¡todo es interactivo!**
-
----
-
-## ⚙️ En el Paso 6, tú eliges:
-
-### 🖥️ Entorno de Escritorio
-- **GNOME** - Moderno, bonito, fácil de usar
-- **KDE Plasma** - Poderoso, muy personalizable
-- **Xfce** - Ligero, rápido (ideal para máquinas lentas)
-- **i3** - Minimalista, para expertos
-
-### 🌍 Idioma
-- Español
-- Inglés
-- Francés
-
----
-
-## 📦 Paquetes Opcionales (Paso 7)
-
-Elige qué instalar:
-- 🌐 **Firefox** - Navegador web
-- 📄 **LibreOffice** - Procesador de textos, hojas de cálculo
-- 🎬 **VLC + GIMP** - Reproductor y editor de imágenes
-- 💻 **VS Code + Git** - Para programadores
-
----
-
-## ⏱️ ¿Cuánto tarda?
-
-**30-60 minutos** (depende de tu internet y computadora)
+| Archivo | Descripción |
+|---------|-------------|
+| [README.md](README.md) | Este archivo |
+| [ISO_BUILD_GUIDE.md](ISO_BUILD_GUIDE.md) | Cómo compilar y usar la ISO |
+| [LEEME.md](LEEME.md) | Guía completa en español |
+| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Solución de 20+ problemas |
+| [INDEX.md](INDEX.md) | Índice de documentación |
 
 ---
 
 ## ✅ Requisitos
 
-✓ Sistema Arch Linux o WSL en Windows  
-✓ Conexión a internet activa  
-✓ Al menos 15 GB de espacio libre  
-✓ Acceso de administrador (se pedirá contraseña)  
-✓ Python 3 instalado  
+### Para ISO
+- USB 8+ GB
+- RAM 2+ GB
+- Disco 20+ GB
+- Internet estable
+- Cualquier S.O. (para grabar USB)
+
+### Para Script
+- Linux instalado
+- Python 3.6+ O Bash 4.0+
+- Acceso sudo
+- Internet
+- 20+ GB libres
 
 ---
 
-## 🔧 Archivos incluidos
+## 🎯 ¿Cuál elegir?
 
-```
-arch caelestia/
-├── instalador_arch.py      ← Versión Python (recomendada)
-├── instalador_arch.sh      ← Versión Bash (alternativa)
-├── README.md               ← Este archivo
-└── LEEME.md               ← Guía detallada en español
-```
+### Usa **ISO** si:
+- ✅ Quieres instalación 100% automática
+- ✅ No tienes conocimiento técnico
+- ✅ Necesitas instalar en múltiples PCs
+- ✅ Quieres experiencia tipo OMarchy
 
----
+### Usa **Script** si:
+- ✅ Ya tienes Linux instalado
+- ✅ Necesitas personalización
+- ✅ No puedes usar USB
+- ✅ Prefieres interfaz interactiva
 
-## 🆘 Problemas comunes
-
-### "No se encuentra python"
-```bash
-sudo pacman -S python
-```
-
-### "Error de conexión"
-Verifica internet:
-```bash
-ping 8.8.8.8
-```
-
-### "Permiso denegado"
-Algunos comandos necesitan `sudo`. Ingresa tu contraseña cuando se pida.
-
-### El proceso se interrumpió
-¡Sin problema! Puedes ejecutar nuevamente desde donde se quedó.
+### Usa **Manual** si:
+- ✅ Necesitas control total
+- ✅ Eres usuario avanzado
+- ✅ Requieres configuración especial
 
 ---
 
-## 📋 Después de la instalación
+## 📖 Empezar
 
-### 1. Reinicia tu computadora
-```bash
-sudo reboot
-```
-
-### 2. ¡Disfruta!
-Tu Arch Linux estará listo con todo lo que elegiste instalado.
+**[→ Ver Guía Completa en INDEX.md](INDEX.md)**
 
 ---
 
-## 💡 Tips
+## 🆘 Problemas
 
-- 📖 **Lee cada paso** antes de continuar
-- 🖱️ **Mantén la ventana abierta** durante toda la instalación
-- 🔐 **Ten tu contraseña a mano** (la necesitarás)
-- ⏳ **Paciencia** - algunos pasos tardan minutos
-- 📱 **Puedes copiar/pegar comandos** si algo sale mal
+Consulta **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** para 20+ soluciones comunes.
 
 ---
 
-## 🤝 Contribuciones
+## 📞 Soporte
 
-¿Encontraste un problema? ¿Tienes sugerencias?
-- Reporta en Issues
-- Sugiere mejoras
-- Comparte tu experiencia
-
----
-
-## 📄 Licencia
-
-Este proyecto está disponible para uso libre y personal.
+- 🐛 **Issues:** https://github.com/Ranijuan/arch-caelestia-installer/issues
+- 📖 **Documentación:** [INDEX.md](INDEX.md)
+- 💬 **Discussions:** GitHub Discussions
 
 ---
 
-## 🎯 Características
+## 📝 Versión
 
-✨ **Interfaz amigable** - Sin comandos complicados  
-✨ **Completamente automático** - No necesitas hacer nada manualmente  
-✨ **Personalizable** - Elige tus opciones en el camino  
-✨ **Seguro** - Verificaciones en cada paso  
-✨ **Educativo** - Aprende qué se está instalando  
-
----
-
-## 🚀 Comienza ahora
-
-```bash
-python instalador_arch.py
-```
-
-**¡Bienvenido a Arch Linux!** 🎉
+- **Versión:** 2.0
+- **ISO:** v2.0 (Nueva - Automática)
+- **Scripts:** v1.0 (Vigente)
+- **Actualización:** 2026-05-28
 
 ---
 
-*Hecho con ❤️ para hacer la instalación de Arch Linux más fácil*
+**Hecho con ❤️ para facilitar la instalación de Arch + Caelestia**
+
+⭐ Si te fue útil, considera una estrella en GitHub
