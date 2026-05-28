@@ -1,0 +1,28 @@
+# Archivos generados durante la instalación
+*.log
+*.tmp
+__pycache__/
+*.pyc
+.DS_Store
+
+# Directorios de caché
+.cache/
+.venv/
+venv/
+env/
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de SO
+.DS_Store
+Thumbs.db
+.directory
+
+# Logs
+logs/
+*.log
