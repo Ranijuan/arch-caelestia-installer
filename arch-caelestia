@@ -1,0 +1,85 @@
+#!/bin/bash
+
+################################################################################
+# 🐧 ARCH + CAELESTIA INSTALLER - EJECUTABLE UNICO
+# Inicia la instalacion directamente - SIN MENUS
+# 
+# Uso:
+#   ./arch-caelestia              ← Inicia instalacion automaticamente
+#   ./arch-caelestia --iso        ← Compilar ISO en su lugar
+#   ./arch-caelestia --help       ← Ver ayuda
+################################################################################
+
+set -e
+
+# Colores
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VERSION="3.0"
+
+# ============================================================================
+# MANEJO DE ARGUMENTOS
+# ============================================================================
+
+show_help() {
+    cat << 'EOF'
+ARCH + CAELESTIA INSTALLER v3.0
+
+USO:
+  ./arch-caelestia              Inicia instalacion automaticamente
+  ./arch-caelestia --iso        Compilar ISO en lugar de instalar
+  ./arch-caelestia --help       Ver esta ayuda
+  ./arch-caelestia --version    Ver version
+
+FEATURES:
+  ✓ Instalacion 100% interactiva paso a paso
+  ✓ Deteccion automatica de hardware
+  ✓ Particionamiento inteligente (UEFI/BIOS)
+  ✓ Caelestia incluida
+  ✓ Bootloader automatico
+
+REQUISITOS:
+  - Linux (Arch/Debian/Ubuntu)
+  - Acceso root/sudo
+  - 5GB espacio libre
+  - Conexion a internet
+
+EOF
+}
+
+# ============================================================================
+# MAIN
+# ============================================================================
+
+case "${1:-}" in
+    --iso)
+        # Compilar ISO
+        if [ ! -f "$SCRIPT_DIR/scripts/build-iso.sh" ]; then
+            echo -e "${RED}✗ Error: No se encontró scripts/build-iso.sh${NC}"
+            exit 1
+        fi
+        sudo bash "$SCRIPT_DIR/scripts/build-iso.sh"
+        ;;
+    --help)
+        show_help
+        ;;
+    --version)
+        echo "Arch + Caelestia Installer v$VERSION"
+        ;;
+    *)
+        # POR DEFECTO: Ejecutar instalador directamente
+        if [ ! -f "$SCRIPT_DIR/instalador_arch.sh" ]; then
+            echo -e "${RED}✗ Error: No se encontró instalador_arch.sh${NC}"
+            exit 1
+        fi
+        
+        # Lanzar instalador
+        bash "$SCRIPT_DIR/instalador_arch.sh"
+        ;;
+esac
