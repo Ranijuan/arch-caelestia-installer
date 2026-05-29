@@ -1,4 +1,4 @@
-# 📦 Instalador Arch Linux con Caelestia - Guía de Uso
+# 📦 Instalador Arch Linux + Caelestia - Guía de Uso
 
 ## ¿Qué es esto?
 
@@ -8,44 +8,30 @@ Una aplicación interactiva **simple y amigable** que te guía paso a paso para 
 
 ## 🚀 Cómo usar
 
-### Opción 1: En Linux/WSL (Recomendado)
+### En Linux/WSL (Recomendado)
 
 1. **Abre la terminal** en tu sistema Arch Linux o WSL
 
 2. **Navega a la carpeta** donde está el instalador:
    ```bash
-   cd ~/Downloads/arch\ caelestia
+   cd ~/arch-caelestia-installer
    ```
 
-3. **Ejecuta el instalador**:
+3. **Hacer ejecutable**:
    ```bash
-   python instalador_arch.py
+   chmod +x instalador_arch.sh
    ```
 
-4. **Sigue las instrucciones** en pantalla - es muy simple:
+4. **Ejecutar**:
+   ```bash
+   ./instalador_arch.sh
+   ```
+
+5. **Sigue las instrucciones** en pantalla - es muy simple:
    - Lee cada paso
    - Presiona ENTER para continuar
    - Responde las preguntas (s/n o elige un número)
    - El programa ejecutará automáticamente todos los comandos
-
-### Opción 2: En Windows (si tienes WSL instalado)
-
-1. **Abre PowerShell** o **Windows Terminal**
-
-2. **Entra a WSL**:
-   ```powershell
-   wsl
-   ```
-
-3. **Navega a la carpeta**:
-   ```bash
-   cd /mnt/c/Users/Ranijuan/Downloads/arch\ caelestia
-   ```
-
-4. **Ejecuta**:
-   ```bash
-   python instalador_arch.py
-   ```
 
 ---
 
@@ -99,20 +85,19 @@ Limpia archivos temporales y ajusta la configuración final.
 
 ## ⚠️ Requisitos previos
 
-✓ Sistema operativo con Arch Linux o WSL  
+✓ Sistema operativo Arch Linux o WSL  
 ✓ Conexión a internet activa  
 ✓ Al menos 15 GB de espacio libre  
 ✓ Acceso de administrador (se pedirá contraseña)  
-✓ Python 3 instalado (generalmente ya viene)
+✓ Bash 4.0+
 
 ---
 
 ## 🛠️ Solución de problemas
 
-### "No se encuentra python"
-Instala Python primero:
+### "Permiso denegado"
 ```bash
-sudo pacman -S python
+sudo chmod +x instalador_arch.sh
 ```
 
 ### "Error de conexión"
@@ -121,21 +106,11 @@ Verifica tu conexión a internet:
 ping 8.8.8.8
 ```
 
-### "Acceso denegado"
-Algunos comandos necesitan permisos de administrador. Si se pide contraseña, ingresa la contraseña de tu usuario.
+### "Acceso denegado en pasos"
+Algunos comandos necesitan permisos de administrador. Ingresa tu contraseña cuando se pida.
 
 ### El proceso se interrumpió
-Puedes volver a ejecutar el programa desde donde se quedó. La mayoría de pasos son idempotentes (seguros de repetir).
-
----
-
-## 📞 Soporte
-
-Si hay problemas:
-1. Lee el mensaje de error con cuidado
-2. Intenta ejecutar nuevamente
-3. Verifica que tienes conexión a internet
-4. Asegúrate de tener espacio en disco
+Puedes volver a ejecutar el programa desde donde se quedó. La mayoría de pasos son seguros de repetir.
 
 ---
 
